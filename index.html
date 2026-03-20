@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yu Xia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --surface: #FFFFFF;
+      --text: #1A1A1A;
+      --text-secondary: #5A5A5A;
+      --text-muted: #8A8A8A;
+      --accent: #2D2D2D;
+      --border: #E8E6E1;
+      --tag-bg: #F0EEEA;
+      --tag-text: #4A4A4A;
+      --hover: #F5F3EF;
+      --serif: 'Source Serif 4', Georgia, serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(250,250,248,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .inner {
+      max-width: 800px; margin: 0 auto;
+      padding: 14px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav .name {
+      font-family: var(--serif); font-weight: 600; font-size: 16px;
+      color: var(--text); text-decoration: none; letter-spacing: -0.3px;
+    }
+    nav .links { display: flex; gap: 28px; }
+    nav .links a {
+      font-size: 13px; color: var(--text-secondary); text-decoration: none;
+      font-weight: 500; letter-spacing: 0.3px; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav .links a:hover { color: var(--text); }
+
+    /* ===== HERO ===== */
+    .hero {
+      max-width: 800px; margin: 0 auto;
+      padding: 140px 24px 60px;
+    }
+    .hero h1 {
+      font-family: var(--serif); font-size: 48px; font-weight: 700;
+      letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 16px;
+    }
+    .hero .subtitle {
+      font-size: 18px; color: var(--text-secondary); line-height: 1.5;
+      max-width: 600px; margin-bottom: 24px;
+    }
+    .hero .contact-row {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      font-size: 14px; color: var(--text-muted);
+    }
+    .hero .contact-row a {
+      color: var(--text-secondary); text-decoration: none;
+      border-bottom: 1px solid var(--border); transition: all 0.2s;
+    }
+    .hero .contact-row a:hover {
+      color: var(--text); border-color: var(--text);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      max-width: 800px; margin: 0 auto;
+      padding: 48px 24px;
+    }
+    section h2 {
+      font-family: var(--serif); font-size: 13px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 2px;
+      color: var(--text-muted); margin-bottom: 32px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+
+    /* ===== CARDS ===== */
+    .card {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .card:last-child { border-bottom: none; }
+
+    .card-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 6px; gap: 16px; flex-wrap: wrap;
+    }
+    .card-title {
+      font-family: var(--serif); font-size: 18px; font-weight: 600;
+      letter-spacing: -0.3px; line-height: 1.3;
+    }
+    .card-meta {
+      font-size: 13px; color: var(--text-muted); white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .card-venue {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      background: var(--accent); color: #fff;
+      padding: 3px 10px; border-radius: 3px; margin-top: 4px;
+    }
+    .card-venue.pending {
+      background: transparent; color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+    .card-authors {
+      font-size: 14px; color: var(--text-secondary); margin: 8px 0 10px;
+      line-height: 1.5;
+    }
+    .card-authors strong { color: var(--text); font-weight: 600; }
+    .card-subtitle {
+      font-size: 14px; color: var(--text-secondary); font-style: italic;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 14.5px; color: var(--text-secondary); line-height: 1.65;
+      margin-top: 8px;
+    }
+    .card-desc li {
+      margin-bottom: 6px; margin-left: 18px;
+    }
+
+    /* ===== TAGS ===== */
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .tag {
+      font-size: 12px; padding: 4px 10px; border-radius: 4px;
+      background: var(--tag-bg); color: var(--tag-text);
+      font-weight: 500;
+    }
+
+    /* ===== ROBOT TABLE ===== */
+    .robot-grid { display: flex; flex-direction: column; gap: 0; }
+
+    .robot-row {
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 24px; padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .robot-row:last-child { border-bottom: none; }
+
+    .robot-name {
+      font-family: var(--serif); font-weight: 600; font-size: 15px;
+      letter-spacing: -0.2px;
+    }
+    .robot-type {
+      font-size: 13px; color: var(--text-muted); margin-top: 2px;
+    }
+    .robot-desc {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.6;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .skill-group h3 {
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px;
+    }
+    .skill-group .tags { margin-top: 0; }
+
+    /* ===== EDUCATION ===== */
+    .edu-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 16px 0; border-bottom: 1px solid var(--border);
+      gap: 16px; flex-wrap: wrap;
+    }
+    .edu-row:last-child { border-bottom: none; }
+    .edu-school {
+      font-family: var(--serif); font-weight: 600; font-size: 16px;
+    }
+    .edu-degree { font-size: 14px; color: var(--text-secondary); margin-top: 2px; }
+    .edu-date { font-size: 13px; color: var(--text-muted); flex-shrink: 0; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      max-width: 800px; margin: 0 auto;
+      padding: 40px 24px 60px;
+      border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--text-muted); text-align: center;
+    }
+
+    /* ===== FADE IN ===== */
+    .fade-in {
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in:nth-child(1) { animation-delay: 0.05s; }
+    .fade-in:nth-child(2) { animation-delay: 0.1s; }
+    .fade-in:nth-child(3) { animation-delay: 0.15s; }
+    .fade-in:nth-child(4) { animation-delay: 0.2s; }
+    .fade-in:nth-child(5) { animation-delay: 0.25s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 36px; }
+      .robot-row { grid-template-columns: 1fr; gap: 8px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      nav .links { gap: 16px; }
+      nav .links a { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner">
+    <a href="#" class="name">Yu Xia</a>
+    <div class="links">
+      <a href="#publications">Papers</a>
+      <a href="#research">Research</a>
+      <a href="#robots">Robots</a>
+      <a href="#skills">Skills</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1 class="fade-in">Yu Xia</h1>
+  <p class="subtitle fade-in">
+    M.S. Robotics @ UC Riverside. I build systems that let humans control robots remotely through VR — and make those robots smarter along the way.
+  </p>
+  <div class="contact-row fade-in">
+    <span>📧 <a href="mailto:yxia072@ucr.edu">yxia072@ucr.edu</a></span>
+    <span>📍 Riverside, CA</span>
+    <span><a href="https://github.com/orangelee89" target="_blank">GitHub</a></span>
+  </div>
+</div>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <h2>Publications</h2>
+
+  <div class="card fade-in">
+    <div class="card-title">Towards Generalizable Safety in Crowd Navigation via Conformal Uncertainty Handling</div>
+    <span class="card-venue">CoRL 2025</span>
+    <div class="card-authors">
+      Jianpeng Yao, Xiaopan Zhang, <strong>Yu Xia*</strong>, Zejing Wang, Amit K. Roy-Chowdhury, Jiachen Li
+    </div>
+    <div class="card-desc">
+      <ul>
+        <li>Conformal inference–guided RL framework for crowd navigation, achieving 96.93% success rate and 3.72× fewer collisions.</li>
+        <li>Deployed on TurtleBot 4 and ROSMASTER X3 for real-world crowd interaction in sparse and dense environments.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-title">NL2SpaTiaL: Translating Ambiguous Natural Language into Spatio-Temporal Logic Specifications</div>
+    <span class="card-venue pending">IROS 2026 — Under Review</span>
+    <div class="card-authors">
+      Licheng Luo, <strong>Yu Xia</strong>, Kaier Liang, Mingyu Cai
+    </div>
+    <div class="card-desc">
+      <ul>
+        <li>Geometry-aware synthesis pipeline integrating qualitative spatial reasoning with correctness-preserving back-translation for generalizable NL→SpaTiaL translation.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <h2>Research Experience</h2>
+
+  <div class="card fade-in">
+    <div class="card-header">
+      <div class="card-title">TeleopXR — VR Teleoperation for Robot Manipulation over WAN</div>
+      <div class="card-meta">2024 – Present</div>
+    </div>
+    <div class="card-subtitle">Advisor: Prof. Hang Qiu, UCR CISL Lab · IROS 2026 Submission</div>
+    <div class="card-desc">
+      <ul>
+        <li>VR-based teleoperation system for remote robot manipulation with intuitive hand-tracking control via extended reality interfaces.</li>
+        <li>Hybrid WebRTC + Tailscale architecture to overcome ROS 2 DDS limitations on WAN/5G networks for low-latency real-time communication.</li>
+        <li>Full-stack pipeline from Quest hand tracking → ROS 2 → Kinova Gen3 robot execution, with Docker containerization and remote workflows.</li>
+      </ul>
+    </div>
+    <div class="tags">
+      <span class="tag">XR</span>
+      <span class="tag">ROS 2</span>
+      <span class="tag">WebRTC</span>
+      <span class="tag">Tailscale</span>
+      <span class="tag">Kinova Gen3</span>
+      <span class="tag">5G</span>
+    </div>
+  </div>
+</section>
+
+<!-- ROBOT HARDWARE -->
+<section id="robots">
+  <h2>Robot Hardware Experience</h2>
+
+  <div class="robot-grid">
+    <div class="robot-row fade-in">
+      <div>
+        <div class="robot-name">TurtleBot 4</div>
+        <div class="robot-type">Differential-drive mobile robot</div>
+      </div>
+      <div class="robot-desc">
+        Primary sim-to-real platform for conformal inference–guided crowd navigation (CoRL 2025). LiDAR-based pedestrian detection provides 3D positions as input to the RL policy for real-time avoidance.
+      </div>
+    </div>
+
+    <div class="robot-row fade-in">
+      <div>
+        <div class="robot-name">ROSMASTER X3</div>
+        <div class="robot-type">Omnidirectional mobile robot</div>
+      </div>
+      <div class="robot-desc">
+        Additional sim-to-real platform for crowd navigation (CoRL 2025), validating policy generalization across different mobile robot morphologies with the same LiDAR-based detection pipeline.
+      </div>
+    </div>
+
+    <div class="robot-row fade-in">
+      <div>
+        <div class="robot-name">ALOHA 2</div>
+        <div class="robot-type">Bimanual teleoperation system</div>
+      </div>
+      <div class="robot-desc">
+        Real-robot evaluation platform for NL2SpaTiaL (IROS 2026). Action trajectories generated by Pi0 are evaluated against spatial STL formulas to verify spatio-temporal specification satisfaction.
+      </div>
+    </div>
+
+    <div class="robot-row fade-in">
+      <div>
+        <div class="robot-name">Kinova Gen3</div>
+        <div class="robot-type">7-DoF collaborative arm</div>
+      </div>
+      <div class="robot-desc">
+        Manipulation execution end for the VR teleoperation system (TeleopXR, ongoing). Integrating Kortex API with WebRTC-based remote control pipeline for real-time teleoperation over WAN.
+      </div>
+    </div>
+
+    <div class="robot-row fade-in">
+      <div>
+        <div class="robot-name">Hexapod (DIY)</div>
+        <div class="robot-type">Legged locomotion platform</div>
+      </div>
+      <div class="robot-desc">
+        Custom-built six-legged robot for RL-based locomotion and flip-recovery in simulation. Real-robot controller developed; sim-to-real transfer pending hardware actuator limitations.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Technical Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Robotics & Sim</h3>
+      <div class="tags">
+        <span class="tag">ROS / ROS 2</span>
+        <span class="tag">MoveIt 2</span>
+        <span class="tag">Gazebo</span>
+        <span class="tag">MuJoCo</span>
+        <span class="tag">Isaac Sim</span>
+        <span class="tag">PX4</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>AI / ML</h3>
+      <div class="tags">
+        <span class="tag">PyTorch</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">OpenCV</span>
+        <span class="tag">MediaPipe</span>
+        <span class="tag">YOLO</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">C/C++</span>
+        <span class="tag">Java</span>
+        <span class="tag">MATLAB</span>
+        <span class="tag">SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Tools</h3>
+      <div class="tags">
+        <span class="tag">Docker</span>
+        <span class="tag">Git</span>
+        <span class="tag">Linux</span>
+        <span class="tag">SolidWorks</span>
+        <span class="tag">Blender</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2>Education</h2>
+
+  <div class="edu-row fade-in">
+    <div>
+      <div class="edu-school">University of California, Riverside</div>
+      <div class="edu-degree">Master of Science in Robotics</div>
+    </div>
+    <div class="edu-date">Sep 2023 – Jun 2025</div>
+  </div>
+
+  <div class="edu-row fade-in">
+    <div>
+      <div class="edu-school">Wuhan Huaxia University of Technology</div>
+      <div class="edu-degree">Bachelor of Engineering in Computer Science and Technology</div>
+    </div>
+    <div class="edu-date">Sep 2017 – Jun 2021</div>
+  </div>
+</section>
+
+<footer>
+  Yu Xia · 2025
+</footer>
+
+</body>
+</html>
