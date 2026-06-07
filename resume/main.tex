@@ -58,6 +58,7 @@
 \addtolength{\textwidth}{1in}
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textheight}{1.0in}
+\setlength{\footskip}{4.1pt}
 
 \urlstyle{same}
 
@@ -93,14 +94,15 @@
     \end{tabular*}\vspace{-4pt}
 }
 
-% Publication heading: title + date on first line, venue on second line right-aligned
+% Publication heading: title first, then venue/date metadata.
 \newcommand{\resumePubHeading}[3]{
     \item
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & {\color{dark-grey}\small #3} \\
-    \end{tabular*}
-    \hfill {\color{dark-grey}\small\textit{#2}}
-    \vspace{-4pt}
+    \begin{tabularx}{\textwidth}[t]{@{}X@{}}
+      \textbf{#1} \\
+    \end{tabularx}\vspace{-3pt}
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      {\color{dark-grey}\small\textit{#2}} & {\color{dark-grey}\small #3} \\
+    \end{tabular*}\vspace{-5pt}
 }
 
 % Hardware heading: name + type, no date
@@ -122,8 +124,8 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0pt, parsep=0pt, topsep=1pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-1pt}}
 
 \color{text-grey}
 
@@ -158,6 +160,14 @@
   \resumeSubHeadingListStart
 
     \resumePubHeading
+      {BOLT: Bandwidth-Efficient Object-Level Streaming for XR Robot Teleoperation}{SenSys 2027 (Under Review)}{Jun. 2026}
+      \resumeItemListStart
+        \resumeItem{\textbf{Yu Xia}, Hang Qiu}
+        \resumeItem{Designed an object-level XR streaming framework for robot teleoperation that transmits object 6D poses and dynamically generated meshes instead of full 3D scenes under strict motion-to-photon latency budgets.}
+        \resumeItem{Built a full-stack Meta Quest prototype, reducing uplink traffic to \textbf{0.4 Mbps} ($\sim$220$\times$ lower than point cloud streaming) and improving noisy-pose translation error from \textbf{67.0} to \textbf{25.1 mm} via cross-view refinement.}
+      \resumeItemListEnd
+
+    \resumePubHeading
       {Towards Generalizable Safety in Crowd Navigation via Conformal Uncertainty Handling}{CoRL 2025}{Sep. 2024}
       \resumeItemListStart
         \resumeItem{Jianpeng Yao, Xiaopan Zhang*, \textbf{Yu Xia*}, Zejing Wang, Amit K. Roy-Chowdhury, Jiachen Li}
@@ -168,7 +178,7 @@
     \resumePubHeading
       {NL2SpaTiaL: Translating Ambiguous Natural Language into Spatio-Temporal Logic Specifications}{IROS 2026 (Under Review)}{Nov. 2025}
       \resumeItemListStart
-        \resumeItem{Licheng Luo, \textbf{Yu Xia}, Kaier Liang, Mingyu Cai}
+        \resumeItem{Licheng Luo, Kaier Liang, \textbf{Yu Xia}, Mingyu Cai}
         \resumeItem{Proposed a geometry-aware synthesis pipeline integrating qualitative spatial reasoning with correctness-preserving back-translation for generalizable NL$\rightarrow$SpaTiaL translation.}
       \resumeItemListEnd
 
@@ -269,6 +279,6 @@
 
 %-----------SUMMARY-----------
 \section{SUMMARY}
-\small{Robotics M.S. from UC Riverside with publications at CoRL 2025 and IROS 2026 (under review). Hands-on experience in robot manipulation, deep reinforcement learning, teleoperation, and sim-to-real deployment across 6 physical robot platforms. Proficient in Python, C++, ROS\,2, MoveIt\,2, PyTorch, and simulation tools (Gazebo, MuJoCo, Isaac Sim). U.S. Permanent Resident.}
+\small{Robotics M.S. from UC Riverside with work at CoRL 2025 and papers under review at IROS 2026/SenSys 2027. Hands-on experience in robot manipulation, deep reinforcement learning, XR teleoperation, and sim-to-real deployment across 6 physical robot platforms. Proficient in Python, C++, ROS\,2, MoveIt\,2, PyTorch, and simulation tools (Gazebo, MuJoCo, Isaac Sim). U.S. Permanent Resident.}
 %-------------------------------------------
 \end{document}
