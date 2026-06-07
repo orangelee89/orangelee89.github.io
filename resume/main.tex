@@ -1,0 +1,274 @@
+%-------------------------
+% Resume in Latex
+% Based off of: https://github.com/jakeryang/resume
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+% fontawesome
+\usepackage{fontawesome5}
+
+% fixed width
+\usepackage[scale=0.90,lf]{FiraMono}
+
+% light-grey
+\definecolor{light-grey}{gray}{0.83}
+\definecolor{dark-grey}{gray}{0.3}
+\definecolor{text-grey}{gray}{.08}
+
+\DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
+\DeclareTextFontCommand{\texteb}{\ebseries}
+
+% custom underline
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+% custom font: helvetica-style
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{0in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% sans serif sections
+\titleformat {\section}{
+    \bfseries \vspace{2pt} \raggedright \large
+}{}{0em}{}[\color{light-grey} {\titlerule[2pt]} \vspace{-4pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{dark-grey}\small #2}\vspace{1pt}\\
+      \textit{#3} & {\color{dark-grey} \small #4}\\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & {\color{dark-grey}\small #2} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+% Publication heading: title + date on first line, venue on second line right-aligned
+\newcommand{\resumePubHeading}[3]{
+    \item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\color{dark-grey}\small #3} \\
+    \end{tabular*}
+    \hfill {\color{dark-grey}\small\textit{#2}}
+    \vspace{-4pt}
+}
+
+% Hardware heading: name + type, no date
+\newcommand{\resumeHardwareHeading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} --- \textit{#2} & \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+% Keywords line
+\newcommand{\resumeKeywords}[1]{
+    \vspace{-2pt}\hspace{18pt}{\small\color{dark-grey}\textit{Keywords: #1}}\vspace{2pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+\color{text-grey}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge Yu Xia} \\ \vspace{5pt}
+    \small \faEnvelope \hspace{2pt} \texttt{yxia072@ucr.edu} \hspace{1pt} $|$
+    \hspace{1pt} \faMapMarker* \hspace{2pt}\texttt{Riverside, CA} \hspace{1pt} $|$
+    \hspace{1pt} \faLinkedin \hspace{2pt}\texttt{linkedin.com/in/yu-xia-b34074262}
+    \\ \vspace{-3pt}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{EDUCATION}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of California, Riverside}{Sep. 2023 -- Jun. 2025}
+      {Master of Science in Robotics}{Riverside, CA, USA}
+    \resumeSubheading
+      {Wuhan Huaxia University of Technology}{Sep. 2017 -- Jun. 2021}
+      {Bachelor of Engineering in Computer Science and Technology}{Wuhan, China}
+  \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS-----------
+\section{PUBLICATIONS}
+  \resumeSubHeadingListStart
+
+    \resumePubHeading
+      {Towards Generalizable Safety in Crowd Navigation via Conformal Uncertainty Handling}{CoRL 2025}{Sep. 2024}
+      \resumeItemListStart
+        \resumeItem{Jianpeng Yao, Xiaopan Zhang*, \textbf{Yu Xia*}, Zejing Wang, Amit K. Roy-Chowdhury, Jiachen Li}
+        \resumeItem{Designed a conformal inference--guided RL framework for crowd navigation, achieving \textbf{96.93\% success rate} and \textbf{3.72$\times$ fewer collisions} with robust out-of-distribution performance.}
+        \resumeItem{Deployed the system on TurtleBot 4 for real-world crowd interaction in both sparse and dense environments.}
+      \resumeItemListEnd
+
+    \resumePubHeading
+      {NL2SpaTiaL: Translating Ambiguous Natural Language into Spatio-Temporal Logic Specifications}{IROS 2026 (Under Review)}{Nov. 2025}
+      \resumeItemListStart
+        \resumeItem{Licheng Luo, \textbf{Yu Xia}, Kaier Liang, Mingyu Cai}
+        \resumeItem{Proposed a geometry-aware synthesis pipeline integrating qualitative spatial reasoning with correctness-preserving back-translation for generalizable NL$\rightarrow$SpaTiaL translation.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------ROBOT HARDWARE EXPERIENCE-----------
+\section{ROBOT HARDWARE EXPERIENCE}
+  \resumeSubHeadingListStart
+
+    \resumeHardwareHeading{TurtleBot 4}{Differential-Drive Mobile Robot}
+      \resumeItemListStart
+        \resumeItem{Differential-drive mobile robot with iRobot Create 3 base, Raspberry Pi 4, OAK-D stereo camera, and RPLIDAR A1M8 2D LiDAR.}
+        \resumeItem{Deployed as the primary sim-to-real platform for the conformal inference--guided crowd navigation policy (CoRL 2025). LiDAR-based pedestrian detection provides 3D positions as input to the RL policy for real-time avoidance in dynamic indoor environments.}
+      \resumeItemListEnd
+
+    \resumeHardwareHeading{Yahboom ROSMASTER X3}{Omnidirectional Mobile Robot}
+      \resumeItemListStart
+        \resumeItem{Mecanum-wheel omnidirectional mobile robot with Jetson Orin, SLAMTEC LiDAR, and Astra depth camera.}
+        \resumeItem{Used as an additional sim-to-real platform for the crowd navigation work (CoRL 2025), validating policy generalization across different mobile robot morphologies with the same LiDAR-based pedestrian detection pipeline.}
+      \resumeItemListEnd
+
+    \resumeHardwareHeading{ALOHA 2}{Bimanual Teleoperation System}
+      \resumeItemListStart
+        \resumeItem{Low-cost bimanual teleoperation system with 4$\times$ Trossen ViperX/WidowX 6-DoF arms, leader-follower control, and multi-view RGB cameras.}
+        \resumeItem{Served as the real-robot evaluation platform for NL2SpaTiaL (IROS 2026). Action trajectories generated by Pi0 are evaluated against spatial STL formulas to verify whether executed manipulations satisfy the translated spatio-temporal specifications.}
+      \resumeItemListEnd
+
+    \resumeHardwareHeading{Kinova Gen3}{7-DoF Collaborative Arm}
+      \resumeItemListStart
+        \resumeItem{7-DoF ultra-lightweight collaborative arm (8.2\,kg, 902\,mm reach, 4\,kg payload) with integrated torque sensors and 2D/3D vision module.}
+        \resumeItem{Serving as the manipulation execution end for an ongoing VR teleoperation project. Integrating Kortex API with WebRTC-based remote control for real-time manipulation over WAN.}
+      \resumeItemListEnd
+
+    \resumeHardwareHeading{Hexapod Robot (DIY)}{Legged Locomotion Platform}
+      \resumeItemListStart
+        \resumeItem{Custom-built six-legged robot for RL-based locomotion research, including gait training and flip-recovery behavior.}
+        \resumeItem{Trained RL locomotion and fall-recovery policies in simulation. Developed the real-robot controller for deployment; sim-to-real transfer pending due to hardware actuator limitations.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECT EXPERIENCE-----------
+\section{PROJECT EXPERIENCE}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {TeleopXR --- VR Teleoperation for Robot Manipulation over WAN}{Jan. 2026 -- Present}
+      {Advisor: Prof. Hang Qiu, UCR CISL Lab \hspace{4pt}$|$\hspace{4pt} Ongoing Project}{Riverside, CA}
+      \resumeItemListStart
+        \resumeItem{Designed and implemented a VR-based teleoperation system for remote robot manipulation with intuitive hand-tracking control via extended reality interfaces.}
+        \resumeItem{Engineered a hybrid WebRTC + Tailscale architecture to overcome ROS\,2 DDS limitations on WAN/5G networks, achieving low-latency real-time communication.}
+        \resumeItem{Developed the full-stack pipeline from VR hand tracking to robot execution, including ROS\,2 integration, Docker containerization, and remote development workflows.}
+      \resumeItemListEnd
+      \resumeKeywords{ROS\,2, WebRTC, Tailscale, Meta Quest, Kinova Gen3, Docker, Unity, 5G}
+
+    \resumeProjectHeading
+      {\textbf{Robotics Fabrication: Ball Balancing Car}}{Apr. 2024}
+      \resumeItemListStart
+        \resumeItem{\textbf{Role}: Perception \& Control Developer. Built subsystems for sensing, wireless communication, and PID motor control for real-time ball balancing.}
+      \resumeItemListEnd
+      \resumeKeywords{Arduino, PID, IMU, Bluetooth}
+
+    \resumeProjectHeading
+      {\textbf{UAV Path Planning and Obstacle Avoidance}}{Dec. 2023}
+      \resumeItemListStart
+        \resumeItem{\textbf{Role}: Simulator \& Communication Developer. Set up simulator, configured UAV sensors, established ROS--PX4 communication for RL training.}
+        \resumeItem{Developed a rule-based baseline for navigating obstacles; contributed to RL reward function design to accelerate convergence.}
+      \resumeItemListEnd
+      \resumeKeywords{ROS, PX4, Gazebo, PPO}
+
+    \resumeProjectHeading
+      {\textbf{Mask Wearing Detection with YOLOv5}}{Sep. 2021}
+      \resumeItemListStart
+        \resumeItem{Trained and optimized YOLOv5 for face mask verification, achieving \textbf{85\% accuracy} on SF-MASK via iterative hyperparameter tuning.}
+      \resumeItemListEnd
+      \resumeKeywords{YOLOv5, PyTorch, OpenCV}
+
+    \resumeProjectHeading
+      {\textbf{Image Classification System Design}}{May 2021}
+      \resumeItemListStart
+        \resumeItem{Enhanced AlexNet architecture and achieved \textbf{85\% accuracy} on CIFAR-10 through comparative experiments using TensorFlow.}
+      \resumeItemListEnd
+      \resumeKeywords{TensorFlow, AlexNet, CIFAR-10}
+
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{SKILLS}
+ \begin{itemize}[leftmargin=0in, label={}]
+    \small{\item{
+     \textbf{Programming}{: Python, C/C++, Java, MATLAB, HTML5, SQL}\vspace{2pt} \\
+     \textbf{Robotics \& Sim}{: ROS / ROS\,2, MoveIt\,2, Gazebo, MuJoCo, Isaac Sim, PX4, Unity}\vspace{2pt} \\
+     \textbf{AI / ML}{: PyTorch, TensorFlow, OpenCV, MediaPipe, YOLO, Reinforcement Learning}\vspace{2pt} \\
+     \textbf{Tools}{: Docker, Git, Linux (Ubuntu), WebRTC, SolidWorks, Blender, Photoshop}\vspace{2pt} \\
+     \textbf{Robot Platforms}{: TurtleBot 4, ROSMASTER X3, ALOHA 2, Kinova Gen3, Hexapod (DIY), UAV (PX4)}
+    }}
+ \end{itemize}
+
+%-----------SUMMARY-----------
+\section{SUMMARY}
+\small{Robotics M.S. from UC Riverside with publications at CoRL 2025 and IROS 2026 (under review). Hands-on experience in robot manipulation, deep reinforcement learning, teleoperation, and sim-to-real deployment across 6 physical robot platforms. Proficient in Python, C++, ROS\,2, MoveIt\,2, PyTorch, and simulation tools (Gazebo, MuJoCo, Isaac Sim). U.S. Permanent Resident.}
+%-------------------------------------------
+\end{document}
